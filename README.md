@@ -1,6 +1,6 @@
 # Smart Bookmark App
 
-Live URL: [https://bookmarksapp.darshans.site](https://bookmarksapp.darshans.site)
+Vercel URL: [https://bookmarks-app-darshans.vercel.app](https://bookmarks-app-darshans.vercel.app)
 
 [![Watch the demo](https://res.cloudinary.com/dqzusd5rw/image/upload/v1771353381/3de11974-f750-4085-bb37-6e6be8c7eaf8.png)](https://res.cloudinary.com/dqzusd5rw/video/upload/v1771353999/demo_dkk4yi.mp4)
 
@@ -86,3 +86,36 @@ http://localhost:3000
 ## Deployment
 
 Deployed on Vercel.
+
+---
+
+## Challenges Faced
+
+### Implementing Reliable Realtime Updates
+
+One of the main challenges was implementing Supabase Realtime correctly without breaking existing functionality.
+
+Initially, integrating realtime subscriptions caused inconsistent behavior:
+
+- Bookmarks did not always update instantly.
+- Some updates required manual refresh in certain edge cases.
+
+The issue was primarily related to:
+
+- Mixing server-side logic with realtime client subscriptions.
+- Subscribing before properly validating session state.
+
+### Solution
+
+The problem was resolved by:
+
+- Moving realtime logic fully into a **client component**.
+- Using `useEffect` properly to:
+  - Fetch the initial bookmarks after confirming session.
+  - Create the Supabase realtime channel only once.
+  - Clean up the channel on unmount.
+
+- Managing local state updates explicitly for:
+  - `INSERT`
+  - `DELETE`
+  - `UPDATE`
