@@ -1,5 +1,6 @@
 import { createClient } from '@/utils/supabase/server';
 import BookmarkItem from './bookmark-item';
+import { Bookmark } from '@/types';
 
 const Bookmarks = async () => {
   const supabase = await createClient();
@@ -14,7 +15,7 @@ const Bookmarks = async () => {
       <div className="font-bold text-xl text-center">Your Bookmarks</div>
       {bookmarks && bookmarks?.length > 0 ? (
         <div className="max-h-[18em] overflow-y-auto w-full">
-          {bookmarks?.map((bookmark) => (
+          {bookmarks?.map((bookmark: Bookmark) => (
             <BookmarkItem
               key={bookmark.id}
               title={bookmark.title}
