@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase/client';
 import BookmarkItem from './bookmark-item';
 import { Bookmark } from '@/types';
+import { TextAnimate } from './ui/text-animate';
 
 const Bookmarks = () => {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
@@ -71,8 +72,14 @@ const Bookmarks = () => {
   }, []);
 
   return (
-    <div className="py-4">
-      <div className="font-bold text-xl text-center">Your Bookmarks</div>
+    <div className="py-6">
+      <TextAnimate
+        animation="blurInUp"
+        by="word"
+        className="font-bold text-2xl text-center text-white font-instrument-serif"
+      >
+        Your Bookmarks
+      </TextAnimate>
 
       {loading ? (
         <span className="block text-center opacity-50 text-xs">Loading...</span>
@@ -88,7 +95,7 @@ const Bookmarks = () => {
           ))}
         </div>
       ) : (
-        <span className="block text-center opacity-50 text-xs">No bookmarks yet</span>
+        <span className="block text-center opacity-50 text-xs text-white">No bookmarks yet</span>
       )}
     </div>
   );

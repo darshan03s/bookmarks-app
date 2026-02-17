@@ -12,7 +12,7 @@ const BookmarkItem = ({ title, url, id }: { title: string; url: string; id: stri
   return (
     <Item>
       <ItemContent>
-        <ItemTitle>{title}</ItemTitle>
+        <ItemTitle className="text-white">{title}</ItemTitle>
         <ItemDescription>{url}</ItemDescription>
       </ItemContent>
       <ItemActions>

@@ -20,9 +20,19 @@ const AddBookmark = () => {
   return (
     <>
       <form action={handleAddBookmark} className="space-y-4">
-        <Input name="url" type="url" className="text-xs" placeholder="Enter URL" />
-        <Input name="title" type="text" className="text-xs" placeholder="Enter Title" />
-        <Button type="submit" className="w-full">
+        <Input
+          name="url"
+          type="url"
+          className="text-xs bg-primary border-none text-white"
+          placeholder="Enter URL"
+        />
+        <Input
+          name="title"
+          type="text"
+          className="text-xs bg-primary border-none text-white"
+          placeholder="Enter Title"
+        />
+        <Button type="submit" className="w-full" variant={'secondary'}>
           Add Bookmark
         </Button>
       </form>
