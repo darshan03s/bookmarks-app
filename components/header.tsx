@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import Image from 'next/image';
-import { getUser, logout } from '@/actions/supabase';
+import { getUser, logout } from '@/actions/auth';
 
 const Header = async () => {
   const user = await getUser();
