@@ -1,11 +1,12 @@
-# Smart Bookmark App
+# Bookmarks App
+
+A full-stack bookmark management application built with **Next.js (App Router)** and **Supabase**.
+Users can sign in with Google, create private bookmarks, delete them, and see updates in real time.
 
 Vercel URL: [https://bookmarks-app-darshans.vercel.app](https://bookmarks-app-darshans.vercel.app)
 
 [![Watch the demo](https://res.cloudinary.com/dqzusd5rw/image/upload/v1771353381/3de11974-f750-4085-bb37-6e6be8c7eaf8.png)](https://res.cloudinary.com/dqzusd5rw/video/upload/v1771353999/demo_dkk4yi.mp4)
 
-A full-stack bookmark management application built with **Next.js (App Router)** and **Supabase**.
-Users can sign in with Google, create private bookmarks, delete them, and see updates in real time.
 
 ---
 
