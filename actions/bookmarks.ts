@@ -1,24 +1,30 @@
 'use server';
 
 import { createClient } from '@/utils/supabase/server';
-import { revalidatePath } from 'next/cache';
 
 export async function addBookmark(formData: FormData) {
   const supabase = await createClient();
+
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new Error('Not authenticated');
+  }
 
   const url = formData.get('url') as string;
   const title = formData.get('title') as string;
 
   const { error } = await supabase.from('bookmarks').insert({
     url,
-    title
+    title,
+    user_id: user.id
   });
 
   if (error) {
-    throw new Error('Not authenticated');
+    throw new Error('Insert failed');
   }
-
-  revalidatePath('/');
 }
 
 export async function deleteBookmark(id: string) {
@@ -29,6 +35,4 @@ export async function deleteBookmark(id: string) {
   if (error) {
     throw new Error('Failed to delete');
   }
-
-  revalidatePath('/');
 }

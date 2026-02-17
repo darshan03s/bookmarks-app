@@ -6,7 +6,6 @@ import { deleteBookmark } from '@/actions/bookmarks';
 
 const BookmarkItem = ({ title, url, id }: { title: string; url: string; id: string }) => {
   async function handleDeleteBookmark() {
-    'use server';
     await deleteBookmark(id);
   }
 
